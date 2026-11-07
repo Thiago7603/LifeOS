@@ -3,7 +3,7 @@ import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import ScreenContainer from "../../src/components/ScreenContainer";
+import ScreenContainer from "../../src/components/common/ScreenContainer";
 import { useTheme } from "../../src/styles/ThemeContext";
 
 export default function ProfileScreen() {

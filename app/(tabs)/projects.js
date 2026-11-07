@@ -1,5 +1,4 @@
-
-import ModuleScreen from "../../src/components/ModuleScreen";
+import ModuleScreen from "../../src/components/common/ModuleScreen";
 import { useTheme } from "../../src/styles/ThemeContext";
 
 export default function ProjectsScreen() {

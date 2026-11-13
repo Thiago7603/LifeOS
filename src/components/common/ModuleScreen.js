@@ -1,3 +1,4 @@
+
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -5,7 +6,13 @@ import { Ionicons } from "@expo/vector-icons";
 import ScreenContainer from "./ScreenContainer";
 import { useTheme } from "../../styles/ThemeContext";
 
-export default function ModuleScreen({ title, description, icon, color }) {
+export default function ModuleScreen({
+  title,
+  description,
+  icon,
+  color,
+  children,
+}) {
   const { colors } = useTheme();
 
   return (
@@ -24,35 +31,17 @@ export default function ModuleScreen({ title, description, icon, color }) {
           {title}
         </Text>
 
-        <Text style={[styles.description, { color: colors.textSecondary }]}>
+        <Text
+          style={[
+            styles.description,
+            { color: colors.textSecondary },
+          ]}
+        >
           {description}
         </Text>
       </View>
 
-      <View
-        style={[
-          styles.card,
-          {
-            backgroundColor: colors.surface,
-            borderColor: colors.border,
-          },
-        ]}
-      >
-        <Ionicons
-          name="construct-outline"
-          size={35}
-          color={colors.primary}
-        />
-
-        <Text style={[styles.cardTitle, { color: colors.text }]}>
-          Próximamente
-        </Text>
-
-        <Text style={[styles.cardDescription, { color: colors.textSecondary }]}>
-          Estamos preparando este módulo de LifeOS.
-          Sus funcionalidades estarán disponibles durante el desarrollo.
-        </Text>
-      </View>
+      {children}
     </ScreenContainer>
   );
 }
@@ -82,24 +71,4 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 20,
   },
-
-  card: {
-    padding: 25,
-    borderRadius: 18,
-    borderWidth: 1,
-    alignItems: "center",
-    gap: 12,
-  },
-
-  cardTitle: {
-    fontSize: 17,
-    fontWeight: "800",
-  },
-
-  cardDescription: {
-    fontSize: 13,
-    textAlign: "center",
-    lineHeight: 21,
-  },
 });
-
